@@ -1,6 +1,7 @@
 package com.example.taredisenyo
 
 import android.os.Bundle
+import android.widget.GridView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +12,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        var grid = findViewById<GridView>(R.id.grid)
+        var lista = mutableListOf(
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano,
+            R.drawable.platano
+        )
+        val adapter = AdapterFruta(this, R.layout.layout_producto, lista)
+
+        grid.adapter = adapter
+
     }
+
 }
